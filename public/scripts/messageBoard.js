@@ -11,10 +11,30 @@ myApp.controller( 'MessageBoardController', function( MessageBoardService ){
     });
   }; //end getMessages
 
+  vm.logIn = function(){
+    console.log('in controller login');
+    MessageBoardService.sendLogIn();
+  };
+
+
   vm.logOut = function(){
     console.log( 'logging out', vm.name );
     vm.hasName = false;
     vm.name = '';
+  };
+
+  vm.register = function(){
+    console.log('in controller register');
+
+    var credentials = {
+      username: vm.usernameRegister,
+      password: vm.passwordRegister
+    };
+
+    vm.usernameRegister = '';
+    vm.passwordRegister = '';
+
+    MessageBoardService.sendRegister(credentials);
   };
 
   vm.sendMessage = function(){

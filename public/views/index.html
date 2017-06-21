@@ -10,6 +10,14 @@
   <body ng-app='myApp'>
     <h1>Omega Message Board</h1>
     <div ng-controller='MessageBoardController as mbc' ng-init='mbc.getMessages()'>
+      <button ng-click='mbc.logIn()' >Log In</button>
+
+      <div class="">
+        <input ng-model='mbc.usernameRegister' type="text" placeholder="username">
+        <input ng-model='mbc.passwordRegister' type="password" placeholder="password">
+        <button ng-click='mbc.register()' > register</button>
+
+      </div>
       <div>
         <p ng-show='mbc.hasName'>
           Logged in as: {{ mbc.name }} <button ng-click='mbc.logOut()'>Log Out</button>
